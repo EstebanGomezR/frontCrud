@@ -2,8 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: azure;
+body {
+  background-color: azure;
+}
+input {
+  width: -webkit-fill-available;
+}
+.btnForm {
+  width: -webkit-fill-available;
+}
+.form-enc {
+  background-image: url("https://c8.alamy.com/compes/p8cbeg/icono-agregar-usuario-p8cbeg.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.form-enc-edit {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/007/626/392/non_2x/user-icon-that-can-easily-modify-or-edit-vector.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 @media (min-width: 768px) {
   .res {

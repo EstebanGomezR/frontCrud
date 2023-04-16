@@ -1,35 +1,62 @@
-<div class="flex items-center flex-col h-screen justify-center">
-  <form
-    class="flex flex-col bg-slate-300 py-14 px-32 items-start gap-3 rounded-md shadow-lg shadow-black"
+<div class="grid grid-cols-6 gap-4">
+  <div
+    class="flex flex-col h-screen m-2 col-span-6 col-start-1 md:col-start-2 md:col-span-4 lg:col-start-3 lg:col-span-2 mt-3 shadow-lg shadow-slate-900 rounded-2xl"
   >
-    <label class="font-bold text-lg" for="">Nombre</label>
-    <input
-      class="py-2 px-4 outline-none"
-      type="text"
-      placeholder="Ingrese nombre"
-      value.bind="nombre"
-    />
-    <label class="font-bold text-lg" for="">Apellido</label>
-    <input
-      class="py-2 px-4 outline-none"
-      type="text"
-      placeholder="Ingrese apellido"
-      value.bind="apellido"
-    />
-    <label class="font-bold text-lg" for="">Email</label>
-    <input
-      class="py-2 px-4 outline-none"
-      type="text"
-      placeholder="Ingrese email"
-      value.bind="email"
-    />
-    <label class="font-bold text-lg" for="">Edad</label>
-    <input
-      class="py-2 px-4 outline-none"
-      type="text"
-      placeholder="Ingrese edad"
-      value.bind="edad"
-    />
-    <button class="inline-block bg-green-300 px-4 py-2 " click.trigger="createUser()">Guardar</button>
-  </form>
+    <div class="h-56 rounded-lg form-enc">
+      <!-- <img class="h-auto" src="https://images.unsplash.com/reserve/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg" alt=""> -->
+    </div>
+    <form
+      class="flex flex-col justify-between -mt-5 border border-x-gray-400 border-b-gray-400 rounded-2xl bg-slate-200 h-full pb-4"
+    >
+      <div class="flex flex-col pt-14 pb-6 px-10 items-start gap-5">
+        <div
+          if.bind="error"
+          class="bg-red-400 py-2 px-4 rounded-2xl flex justify-between opacity-30"
+          style="width: -webkit-fill-available"
+        >
+          <p class="text-white">Error: Ingrese todos los parametros</p>
+          <button class="font-bold text-white" click.trigger="closeAlert()">X</button>
+        </div>
+        <input
+          class="py-2 px-4 outline-none bg-transparent border border-x-0 border-t-0 border-b-gray-400"
+          type="text"
+          placeholder="Ingrese nombre"
+          value.bind="nombre"
+          required
+        />
+        <input
+          class="py-2 px-4 outline-none bg-transparent border border-x-0 border-t-0 border-b-gray-400"
+          type="text"
+          placeholder="Ingrese apellido"
+          value.bind="apellido"
+        />
+        <input
+          class="py-2 px-4 outline-none bg-transparent border border-x-0 border-t-0 border-b-gray-400"
+          type="text"
+          placeholder="Ingrese email"
+          value.bind="email"
+        />
+        <input
+          class="py-2 px-4 outline-none bg-transparent border border-x-0 border-t-0 border-b-gray-400"
+          type="text"
+          placeholder="Ingrese edad"
+          value.bind="edad"
+        />
+      </div>
+      <div class="btnForm flex flex-col gap-3">
+        <button
+          class="bg-green-300 px-4 py-2 rounded-lg mx-2 btnForm"
+          click.trigger="createUser()"
+        >
+          Guardar
+        </button>
+        <button
+          class="bg-red-300 px-4 py-2 rounded-lg mx-2 btnForm"
+          click.trigger="HomePage()"
+        >
+          Volver
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

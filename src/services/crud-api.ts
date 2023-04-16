@@ -28,15 +28,16 @@ export class CrudApi {
       "https://backendcrud-production.up.railway.app/user/",
       { method: "post", body: json(body) }
     );
-    return req.json();
+    return req.status == 400 ? "error" : req.json(); 
+    
   }
   public async updateUser(nombre, apellido, email, edad, id): Promise<any> {
     
     const req = await this.http.fetch(
-      `https://backendcrud-production.up.railway.app/user/${id}?nombre=${nombre}&apellido=${apellido}&correo=${email}&edad=${id}`,
+      `https://backendcrud-production.up.railway.app/user/${id}?nombre=${nombre}&apellido=${apellido}&correo=${email}&edad=${edad}`,
       { method: "put"}
     );
-    return req.json();
+    return req.status == 400 ? "error" : req.json(); 
   }
   public async deleteUser(id): Promise<any> {
     const req = await this.http.fetch(

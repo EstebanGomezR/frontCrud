@@ -8,8 +8,11 @@ export class ViewUser implements IRouteableComponent {
   private apellido;
   private email;
   private edad;
+  private error;
 
-  constructor(private api: CrudApi, @IRouter private router: IRouter) {}
+  constructor(private api: CrudApi, @IRouter private router: IRouter) {
+    this.error = false;
+  }
 
   async canLoad(params: Parameters) {
     this.id = params.id;
@@ -32,9 +35,12 @@ export class ViewUser implements IRouteableComponent {
       this.edad,
       this.id
     );
-    this.HomePage();
+    this.data == "error" ? (this.error = true) : this.HomePage();
   }
   async HomePage() {
     await this.router.load("/");
+  }
+  closeAlert() {
+    this.error = false;
   }
 }

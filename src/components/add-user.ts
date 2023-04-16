@@ -7,8 +7,11 @@ export class AddUser implements IRouteableComponent {
   private apellido;
   private email;
   private edad;
+  private error;
 
-  constructor(private api: CrudApi, @IRouter private router: IRouter) {}
+  constructor(private api: CrudApi, @IRouter private router: IRouter) {
+    this.error = false;
+  }
 
   async createUser() {
     this.data = await this.api.createUser(
@@ -17,9 +20,12 @@ export class AddUser implements IRouteableComponent {
       this.email,
       this.edad
     );
-    this.HomePage();
+    this.data == "error" ? (this.error = true) : this.HomePage();
   }
   async HomePage() {
     await this.router.load("/");
+  }
+  closeAlert() {
+    this.error = false;
   }
 }
