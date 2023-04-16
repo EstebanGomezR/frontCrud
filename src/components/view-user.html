@@ -1,0 +1,36 @@
+<div class="flex items-center flex-col h-screen justify-center">
+    <form
+      class="flex flex-col bg-slate-300 py-14 px-32 items-start gap-3 rounded-md shadow-lg shadow-black"
+    >
+      <label class="font-bold text-lg" for="">Nombre</label>
+      <input
+        class="py-2 px-4 outline-none"
+        type="text"
+        placeholder="Ingrese nombre"
+        value.bind="nombre"
+      />
+      <label class="font-bold text-lg" for="">Apellido</label>
+      <input
+        class="py-2 px-4 outline-none"
+        type="text"
+        placeholder="Ingrese apellido"
+        value.bind="apellido"
+      />
+      <label class="font-bold text-lg" for="">Email</label>
+      <input
+        class="py-2 px-4 outline-none"
+        type="text"
+        placeholder="Ingrese email"
+        value.bind="email"
+      />
+      <label class="font-bold text-lg" for="">Edad</label>
+      <input
+        class="py-2 px-4 outline-none"
+        type="text"
+        placeholder="Ingrese edad"
+        value.bind="edad"
+      />
+      <button class="inline-block bg-green-300 px-4 py-2 " click.trigger="updateUser()">Modificar</button>
+    </form>
+  </div>
+  

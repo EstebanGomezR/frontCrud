@@ -1,0 +1,49 @@
+<div class="flex justify-center mt-3 flex-col mx-3">
+  <button
+    click.trigger="RegistroUserPage()"
+    class="py-3 mx-1 bg-green-200 outline-none font-bold rounded-2xl mb-5 border border-slate-900 hover:bg-green-400"
+  >
+    Crear
+  </button>
+  <table class="table-auto border-separate border border-slate-500 mx-1">
+    <thead class="bg-slate-400">
+      <tr>
+        <th class="border border-slate-600 px-12 py-2">Nombre</th>
+        <th class="border border-slate-600 px-12 py-2 hidden res">Correo</th>
+        <th class="border border-slate-600 px-12 py-2 hidden res">Edad</th>
+        <th class="border border-slate-600 px-12 py-2">Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="bg-slate-300">
+      <tr repeat.for="user of data">
+        <td class="py-1 pl-5 text-lg hover:bg-slate-900 hover:text-white">
+          ${user.nombre} ${user.apellido}
+        </td>
+        <td
+          class="py-1 pl-12 hidden res text-lg hover:bg-slate-900 hover:text-white"
+        >
+          ${user.correo}
+        </td>
+        <td
+          class="py-1 pl-12 hidden res text-lg hover:bg-slate-900 hover:text-white"
+        >
+          ${user.edad}
+        </td>
+        <td class="py-1 flex flex-col items-center">
+          <button
+            class="px-6 py-1 mb-2 rounded-lg bg-blue-200 outline-none border border-slate-900 font-bold hover:bg-blue-400"
+            click.trigger="EditPage(user.id)"
+          >
+            <i class="fa-solid fa-trash-xmark"></i>Editar
+          </button>
+          <button
+            class="px-4 py-1 bg-red-200 rounded-lg outline-none border border-slate-900 font-bold hover:bg-red-400"
+            click.trigger="deleteUser(user.id)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
